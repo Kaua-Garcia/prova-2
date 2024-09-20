@@ -1,4 +1,5 @@
-EX 6
+EX 10
+
 #include <stdio.h>
 
 int main() {
