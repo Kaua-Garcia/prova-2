@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+int main() {
+    int opcao;
+    float num1, num2, resultado;
+
+    do {
+        // Exibir o menu de operações
+        printf("\nMenu:\n");
+        printf("1. Adição\n");
+        printf("2. Subtração\n");
+        printf("3. Multiplicação\n");
+        printf("4. Divisão\n");
+        printf("5. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        // Se o usuário escolher sair, o loop será encerrado
+        if (opcao == 5) {
+            printf("Saindo...\n");
+            break;
+        }
+
+        // Solicitar os dois números
+        printf("Digite o primeiro número: ");
+        scanf("%f", &num1);
+        printf("Digite o segundo número: ");
+        scanf("%f", &num2);
+
+        switch (opcao) {
+            case 1:
+                // Operação de Adição
+                resultado = num1 + num2;
+                printf("Resultado da Adição: %.2f\n", resultado);
+                break;
+
+            case 2:
+                // Operação de Subtração
+                resultado = num1 - num2;
+                printf("Resultado da Subtração: %.2f\n", resultado);
+                break;
+
+            case 3:
+                // Operação de Multiplicação
+                resultado = num1 * num2;
+                printf("Resultado da Multiplicação: %.2f\n", resultado);
+                break;
+
+            case 4:
+                // Operação de Divisão
+                if (num2 != 0) {
+                    resultado = num1 / num2;
+                    printf("Resultado da Divisão: %.2f\n", resultado);
+                } else {
+                    printf("Erro: Divisão por zero não é permitida.\n");
+                }
+                break;
+
+            default:
+                // Opção inválida
+                printf("Opção inválida. Tente novamente.\n");
+                break;
+        }
+
+    } while (opcao != 5); // O loop continua até a opção de sair ser escolhida
+
+    return 0;
+}
