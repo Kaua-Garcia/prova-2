@@ -1,0 +1,33 @@
+EX 11
+#include <stdio.h>
+
+int main() {
+    float nota;
+    int i;
+
+    
+    for (i = 1; i <= 8; i++) {
+        printf("Aluno %d:\n", i);
+
+        
+        printf("Digite a nota: ");
+        scanf("%f", &nota);
+
+      
+        if (nota >= 9.0 && nota <= 100) {
+            printf("Conceito A\n");
+        } else if (nota >= 7.0 && nota < 9.0) {
+            printf("Conceito B\n");
+        } else if (nota >= 5.0 && nota < 7.0) {
+            printf("Conceito C\n");
+        } else if (nota >= 3.0 && nota < 5.0) {
+            printf("Conceito D\n");
+        } else if (nota >= 0.0 && nota < 3.0) {
+            printf("Conceito F\n");
+        } else {
+            printf("Nota inválida\n"); 
+        printf("\n"); 
+    }
+
+    return 0;
+}
