@@ -1,0 +1,52 @@
+//Escreva um programa que solicite ao usuário um número decimal e um valor de
+//base de conversão (entre 2 e 16). O programa deve converter o número decimal
+//para a base desejada e exibir o resultado. Utilize um laço para realizar a conversão
+
+#include <stdio.h>
+
+void converter_base(int num, int base) {
+    char resultado[32]; // Buffer para armazenar o resultado
+    int indice = 0;
+
+    // Conjunto de caracteres que serão usados para bases maiores que 10
+    char caracteres[] = "0123456789ABCDEF";
+
+    // Se o número for 0, a conversão é trivial
+    if (num == 0) {
+        printf("0\n");
+        return;
+    }
+
+    // Realiza a conversão
+    while (num > 0) {
+        resultado[indice] = caracteres[num % base];
+        num /= base;
+        indice++;
+    }
+
+    // Exibe o resultado na ordem inversa (pois a conversão gera o resultado "de trás para frente")
+    for (int i = indice - 1; i >= 0; i--) {
+        printf("%c", resultado[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int numero, base;
+
+    // Solicita ao usuário o número decimal
+    printf("Digite um número decimal: ");
+    scanf("%d", &numero);
+
+    // Solicita ao usuário a base de conversão
+    do {
+        printf("Digite a base de conversão (entre 2 e 16): ");
+        scanf("%d", &base);
+    } while (base < 2 || base > 16); // Garante que a base está entre 2 e 16
+
+    // Converte e exibe o resultado
+    printf("O número %d na base %d é: ", numero, base);
+    converter_base(numero, base);
+
+    return 0;
+}
