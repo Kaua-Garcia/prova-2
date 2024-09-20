@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void sorteiaNumero(int *numero) {
+    *numero = (rand() % 100) + 1;
+}
+
+void jogoAdivinhacao() {
+    int numero_a_ser_adivinhado, palpite, tentativas = 0;
+    sorteiaNumero(&numero_a_ser_adivinhado);
+
+    printf("Bem-vindo ao jogo de adivinhação de número!\n");
+    printf("Você tem 7 tentativas para adivinhar o número.\n");
+
+    while (tentativas < 7) {
+        printf("Digite seu palpite: ");
+        scanf("%d", &palpite);
+
+        if (palpite == numero_a_ser_adivinhado) {
+            printf(" Parabéns! Você adivinhou o número em %d tentativas.\n", tentativas + 1);
+            return;
+        } else if (palpite < numero_a_ser_adivinhado) {
+            printf("Seu palpite é muito baixo. Tente novamente!\n");
+        } else {
+            printf("Seu palpite é muito alto. Tente novamente!\n");
+        }
+
+        tentativas++;
+    }
+
+    printf("Desculpe, você não adivinhou o número. A resposta certa era %d.\n", numero_a_ser_adivinhado);
+}
+
+int main() {
+    jogoAdivinhacao();
+    return 0;
+}
