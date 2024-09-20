@@ -1,0 +1,28 @@
+//3. Escreva um programa em C que solicite ao usuário as notas de 5 alunos e suas
+//respectivas pesos, calcule a média ponderada de cada aluno e ao final exiba a
+//média final da turma. (0.1 ponto)
+//Entradas: 5 pares de valores (nota e peso) para cada aluno.
+//Saída: a média ponderada de cada aluno e a média final da turma.
+
+#include <stdio.h>
+
+#define NUM_ALUNOS 5
+
+int main() {
+    // Declaração das variáveis
+    double nota, peso;
+    double soma_ponderada_total = 0;
+    double soma_pesos_total = 0;
+    double media_ponderada_aluno;
+    
+    // Loop para processar as notas e pesos de cada aluno
+    for (int i = 1; i <= NUM_ALUNOS; i++) {
+        double soma_ponderada = 0;
+        double soma_pesos = 0;
+        
+        printf("Aluno %d:\n", i);
+        
+        // Coleta as notas e pesos
+        for (int j = 1; j <= 3; j++) { // Supondo 3 notas e pesos por aluno
+            printf("Digite a nota %d: ", j);
+            scanf("%lf", &nota);
