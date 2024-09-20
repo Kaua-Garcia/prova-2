@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+// Função para calcular o fatorial de um número
+unsigned long long fatorial(int n) {
+    unsigned long long fat = 1;
+    for (int i = 1; i <= n; i++) {
+        fat *= i;
+    }
+    return fat;
+}
+
+int main() {
+    int opcao, numero;
+
+    do {
+        // Exibir o menu
+        printf("\nMenu:\n");
+        printf("1. Calcular o fatorial de um número\n");
+        printf("2. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                // Solicitar o número inteiro
+                printf("Digite um número inteiro: ");
+                scanf("%d", &numero);
+
+                // Verificar se o número é não-negativo
+                if (numero < 0) {
+                    printf("Erro: não é possível calcular o fatorial de um número negativo.\n");
+                } else {
+                    // Calcular e exibir o fatorial
+                    printf("Fatorial de %d é %llu\n", numero, fatorial(numero));
+                }
+                break;
+
+            case 2:
+                // Sair do programa
+                printf("Saindo...\n");
+                break;
+
+            default:
+                // Opção inválida
+                printf("Opção inválida. Tente novamente.\n");
+        }
+
+    } while (opcao != 2);  // O loop continua até a opção "Sair" ser escolhida
+
+    return 0;
+}
